@@ -2,7 +2,7 @@
 <html class="no-js" lang="">
 <head>
   <meta charset="utf-8">
-  <title>Project 2</title>
+  <title>Project 3</title>
   <meta name="description" content="Movie Information APP Using Live XML-REST API from Finnkino">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="manifest" href="site.webmanifest">
@@ -19,14 +19,14 @@
 </head>
 <!-- Silloin kun sivu lataa se kutsuu loadAreas funktiota main.js tiedostosta
      joka hakee teatterit select listaan finnkinon XML tiedostosta / sivulta -->
-<body onload = "loadAreas()">
+<body>
   <div class="header">
     <img src = "logo.png">
     <h1>innkinon Elokuvat</h1>
   </div>
   <br/>
   <br/>
-  <select id="theatreList" onchange ="loadSchedule()"></select>
+  <select id="theatreList"></select>
   <br/>
   <input id="userInput" type="text" placeholder="Hae elokuvia..." onkeyup="searchFunction()">
   <div class="testcontainer">
@@ -35,13 +35,13 @@
     <table id="list"></table>
   </div>
   <footer>
-    <header>Production of Eetu Rättyä  & Anton Laihi</header>
+    <header>Production of Anton Laihi  & Eetu Rättyä</header>
   </footer>
   <!-- Javascript tiedostot  -->
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="crossorigin="anonymous"></script>
   <script src="js/vendor/modernizr-3.7.1.min.js"></script>
   <script src="js/plugins.js"></script>
   <script src="js/main.js"></script>
-  <script src="https://code.jquery.com/jquery-3.3.1.min.js"integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="crossorigin="anonymous"> </script>
   </body>
 
 </html>

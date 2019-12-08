@@ -1,0 +1,47 @@
+<!doctype html>
+<html class="no-js" lang="">
+<head>
+  <meta charset="utf-8">
+  <title>Project 2</title>
+  <meta name="description" content="Movie Information APP Using Live XML-REST API from Finnkino">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="apple-touch-icon" href="icon.png">
+  <!-- Place favicon.ico in the root directory -->
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/main.css">
+  <!-- Tein erikseen uuden CSS tiedoston
+        mihin ajattelin et laitetaan itse tekemät muotoilut ni helpompi löytää (stylesheet.css)-->
+  <link rel="stylesheet" href="css/stylesheet.css">
+  <meta name="theme-color" content="#fafafa">
+  <link rel="icon" href="favicon.ico">
+
+</head>
+<!-- Silloin kun sivu lataa se kutsuu loadAreas funktiota main.js tiedostosta
+     joka hakee teatterit select listaan finnkinon XML tiedostosta / sivulta -->
+<body onload = "loadAreas()">
+  <div class="header">
+    <img src = "logo.png">
+    <h1>innkinon Elokuvat</h1>
+  </div>
+  <br/>
+  <br/>
+  <select id="theatreList" onchange ="loadSchedule()"></select>
+  <br/>
+  <input id="userInput" type="text" placeholder="Hae elokuvia..." onkeyup="searchFunction()">
+  <div class="testcontainer">
+    <br/>
+    <br/>
+    <table id="list"></table>
+  </div>
+  <footer>
+    <header>Production of Eetu Rättyä  & Anton Laihi</header>
+  </footer>
+  <!-- Javascript tiedostot  -->
+  <script src="js/vendor/modernizr-3.7.1.min.js"></script>
+  <script src="js/plugins.js"></script>
+  <script src="js/main.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="crossorigin="anonymous"> </script>
+  </body>
+
+</html>

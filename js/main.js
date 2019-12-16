@@ -15,8 +15,9 @@ $(document).ready(function() {
 
 
 $("#theatreList").change(function(){
+  $("#list").text("");
   var id = $("#theatreList").val();
-  console.log(id);
+  $("#userInput").css("display", "block");
 
   $.ajax({
     url: "https://www.finnkino.fi/xml/Schedule/?area=" + id,
@@ -40,4 +41,20 @@ $("#theatreList").change(function(){
         });
     }
   });
+});
+
+$("#userInput").keyup(function(){
+  var input = $("#userInput").val();
+  var filter = input.toUpperCase();
+  var table = $("#list");
+
+  $(table).find('tr').each(function() {
+    var tdText = $(this).text();
+    if(tdText.toUpperCase().indexOf(filter) > -1 ) {
+      $(this).fadeIn(1000);
+    } else {
+      $(this).fadeOut(1000);
+    }
+  });
+  //console.log(filter);
 });

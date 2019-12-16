@@ -28,11 +28,7 @@ $("#theatreList").change(function(){
           var imageURL = '<img class="images" src="' + $(this).find('EventSmallImagePortrait').text() + '">';
           var title = $(this).find('Title').text();
           var xmlSchedule = $(this).find('dttmShowStart').text();
-          var ratingIMG = '<img src="' + $(this).find('RatingImageUrl').text() + '">'  
-          // Tähän alle pitäisi änkeä .each loop. en tajuu miten se toimii
-         // var descriptionImages = $(this).find('ContentDescriptors').text()
-            
-          
+          var ratingIMG = '<img src="' + $(this).find('RatingImageUrl').text() + '">'
           var xmlDuration = $(this).find('LengthInMinutes').text();
 
           var time = xmlSchedule.slice(11, 16);
@@ -40,11 +36,16 @@ $("#theatreList").change(function(){
           var month = xmlSchedule.slice(5,7);
           var year = xmlSchedule.slice(0,4);
 
-          
+          // Tähän alle pitäisi änkeä .each loop. en tajuu miten se toimii
+         // var descriptionImages = $(this).find('ContentDescriptors').text()
+         var contentDescriptors = "";
+         $($(this).find('ContentDescriptors')).find('contentDescriptor').each(function() {
+           contentDescriptors += '<img src="' + $(this).find('ImageURL').text() + '">';
+         });
 
-          $("#list").append('<tr><td>'+ imageURL + '</td><td>' + title + '<br/>' + date + "."+ month+ "." + year + " " + time + '<br/>' + "Kesto: " + xmlDuration + " minuuttia <br/> <br/>" + ratingIMG + /* descriptionImages  + */  '</td>');
-         
-          
+
+          $("#list").append('<tr><td>'+ imageURL + '</td><td>' + title + '<br/>' + date + "."+ month+ "." + year + " " + time + '<br/>' + "Kesto: " + xmlDuration + " minuuttia <br/> <br/>" + ratingIMG +  contentDescriptors  +   '</td>');
+
         });
     }
   });

@@ -4,8 +4,10 @@ $(document).ready(function() {
     type: "GET",
     dataType: "html",
     success: function(xml) {
-        $(xml).find('Name').each(function() {
-          $("#theatreList").append('<option>' + $(this).text() + '</option>');
+        $(xml).find('TheatreArea').each(function() {
+          var theatreText = $(this).find('Name').text();
+          var theatreID = $(this).find('ID').text();
+          $("#theatreList").append('<option value = ' + theatreID + '>' + theatreText + '</option>');
         });
     }
   });

@@ -1,12 +1,18 @@
+//.ready tarkistaa, että DOM -sisältö on kokonaan valmis käsiteltäväksi
 $(document).ready(function() {
+  //kutsutaan .ajaxilla XML sivuston dataa
   $.ajax({
     url: "https://www.finnkino.fi/xml/TheatreAreas/",
     type: "GET",
     dataType: "html",
     success: function(xml) {
+      //jos data on kunnossa (success), lähtee alla oleva fuktio toimintaan
+      //etsitään tag TheatreArea xml tiedostosta
         $(xml).find('TheatreArea').each(function() {
+          //haetaan jokainen tag theatrearea ja niiden sisältä 'name' ja 'id'  
           var theatreText = $(this).find('Name').text();
           var theatreID = $(this).find('ID').text();
+          //tulostetaan select tauluun sisällöt
           $("#theatreList").append('<option value = ' + theatreID + '>' + theatreText + '</option>');
         });
     }

@@ -15,5 +15,18 @@ $(document).ready(function() {
 
 
 $("#theatreList").change(function(){
-  console.log("Toimiiko?"); 
+  var id = $("#theatreList").val();
+  console.log(id);
+
+  $.ajax({
+    url: "https://www.finnkino.fi/xml/Schedule/?area=" + id,
+    type: "GET",
+    dataType: "html",
+    success: function(xml) {
+        $(xml).find('Show').each(function() {
+          var title = $(this).find('Title').text();
+          $("#list").append('<tr><td> ' + title + '</td></tr>');
+        });
+    }
+  });
 });

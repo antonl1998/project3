@@ -35,7 +35,7 @@ $("#theatreList").change(function(){
         var month = xmlSchedule.slice(5,7);
         var year = xmlSchedule.slice(0,4);
 
-          $("#list").append('<tr><td> ' + imageURLS + title + date + "."+ month+ "." + year + " " + time + '<br/>' + '</td></tr>');
+          $("#list").append('<tr><td> ' + imageURLS + '</td><td>' + title + date + "."+ month+ "." + year + " " + time + '<br/>' + '</td></tr>');
          
           
         });

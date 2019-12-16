@@ -1,4 +1,14 @@
 $(document).ready(function() {
-  var $testi = $( "#result" ).load( "https://www.finnkino.fi/xml/TheatreAreas/" );
-  console.log($testi.find("Name")[0]);
+  $.ajax({
+    url: "https://www.finnkino.fi/xml/TheatreAreas/",
+    type: "GET",
+    dataType: "html",
+    success: function(data) {
+        var xml = $.parseXML(data);
+        $(xml).find('ID').each(function() {
+          var name = $(this).attr('name');
+          console.log(name);
+        });
+    }
+  });
 });

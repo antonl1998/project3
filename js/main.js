@@ -15,7 +15,9 @@ $(document).ready(function() {
 
 
 $("#theatreList").change(function(){
+  $("#list").text("");
   var id = $("#theatreList").val();
+  //$("#theatreList").css("");
   console.log(id);
 
   $.ajax({

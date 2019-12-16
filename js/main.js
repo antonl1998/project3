@@ -17,8 +17,7 @@ $(document).ready(function() {
 $("#theatreList").change(function(){
   $("#list").text("");
   var id = $("#theatreList").val();
-  //$("#theatreList").css("");
-  console.log(id);
+  $("#userInput").css("display", "block");
 
   $.ajax({
     url: "https://www.finnkino.fi/xml/Schedule/?area=" + id,

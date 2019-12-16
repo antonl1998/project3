@@ -12,3 +12,8 @@ $(document).ready(function() {
     }
   });
 });
+
+
+$("#theatreList").change(function(){
+  console.log("Toimiiko?"); 
+});
